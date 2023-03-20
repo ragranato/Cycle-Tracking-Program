@@ -2,7 +2,7 @@ from decimal import Decimal
 
 
 print("Hello! Welcome to the Cycling Tracker!\n")
-new_miles = Decimal(input("How many miles did you cycle today? \n"))
+
 
 def add_miles(miles):
     total = read_miles()
@@ -23,4 +23,12 @@ def read_miles():
         total = Decimal(file.read())
     return total
 
-add_miles(new_miles)
+is_on = True
+while is_on:
+    new_miles = Decimal(input("How many miles did you cycle today? \n"))    
+    add_miles(new_miles)
+    again = input("Would you like to add more miles? Y or N?\n")
+    if again.lower() == "y":
+        continue
+    else:
+        is_on = False
